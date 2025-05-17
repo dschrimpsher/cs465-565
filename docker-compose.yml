@@ -1,0 +1,28 @@
+﻿version: "3"
+services:
+  attacker:
+    build: .
+    container_name: attacker
+    tty: true
+    privileged: true
+    networks:
+      secnet:
+        ipv4_address: 10.10.10.10
+
+
+  victim:
+    build: .
+    container_name: victim
+    tty: true
+    privileged: true
+    networks:
+      secnet:
+        ipv4_address: 10.10.10.11
+
+
+networks:
+  secnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.10.10.0/24

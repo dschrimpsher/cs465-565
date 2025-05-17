@@ -1,5 +1,7 @@
 # Student workspace
-workspace/
+workspace/*
+# But keep the directory
+!workspace/.gitkeep
 
 # Docker
 .env
@@ -43,4 +45,8 @@ yarn-error.log*
 
 # Operating System
 .DS_Store
-Thumbs.db 
+Thumbs.db
+
+# Other common ignores
+.env
+.venv/ 

@@ -1,27 +1,31 @@
 ﻿version: "3"
 services:
-  attacker:
+  dev-environment:
     build: .
-    container_name: attacker
+    container_name: student-dev
     tty: true
     privileged: true
+    ports:
+      - "8080:8080"  # VS Code Server
+      - "8888:8888"  # JupyterLab
+    volumes:
+      - ./workspace:/home/student/workspace
     networks:
-      secnet:
+      devnet:
         ipv4_address: 10.10.10.10
 
-
-  victim:
-    build: .
-    container_name: victim
-    tty: true
-    privileged: true
-    networks:
-      secnet:
-        ipv4_address: 10.10.10.11
-
+  # Optional: Uncomment if you need additional containers for networking exercises
+  # target-system:
+  #   build: .
+  #   container_name: target
+  #   tty: true
+  #   privileged: true
+  #   networks:
+  #     devnet:
+  #       ipv4_address: 10.10.10.11
 
 networks:
-  secnet:
+  devnet:
     driver: bridge
     ipam:
       config:

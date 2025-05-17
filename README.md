@@ -118,8 +118,9 @@ The lab environment consists of:
 This lab environment is for educational purposes only. The tools included should only be used in this isolated environment or on systems you have permission to test.
 
 # Clone and build the container
+```bash
 git clone https://github.com/dschrimpsher/network-security-lab.git
 cd network-security-lab
 docker build -t netseclab .
 docker run -it --rm --privileged netseclab
-
+```

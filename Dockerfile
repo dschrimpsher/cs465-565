@@ -1,5 +1,11 @@
 ﻿FROM ubuntu:22.04@sha256:f9d633ff6640178c2d0525017174a688e2c1aef28f0a0130b26bd5554491f0da
 
+# Set environment variable to avoid interactive prompts
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Pre-configure Wireshark for non-root users
+RUN echo "wireshark-common wireshark-common/install-setuid boolean true" | debconf-set-selections
+
 # Install common development tools and VS Code Server
 RUN apt-get update && apt-get install -y \
     # System utilities

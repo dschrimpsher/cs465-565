@@ -6,8 +6,8 @@ services:
     tty: true
     privileged: true
     ports:
-      - "8080:8080"  # VS Code Server
-      - "8888:8888"  # JupyterLab
+      - "0.0.0.0:8080:8080"  # VS Code Server - accessible from other machines
+      - "0.0.0.0:8888:8888"  # JupyterLab - accessible from other machines
     volumes:
       - ./workspace:/home/student/workspace
     networks:

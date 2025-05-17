@@ -23,6 +23,7 @@ This repository contains a Docker-based development environment for students, pr
 
 3. Build and start the environment:
    ```bash
+   docker-compose build --no-cache
    docker-compose up -d
    ```
 
